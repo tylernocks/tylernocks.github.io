@@ -1,0 +1,15 @@
+Game Engine: Enchant.js
+Reasoning: Documentation is magnificent. Large community so questions can be answered. Has a lot of tutorials. Makes it easy to enter and exit combat fluidly. Can be played on mobile devices. Open Source
+
+Art Style: Pixel
+
+
+- input handling
+- representation of game levels, if present
+- player class
+- enemy classes, including a container holding active enemies
+- game object classes, including a container to hold them
+- collision detection
+- classes for drawing player, enemies, other game objects
+- classes for handling audio
+- menu system classes
