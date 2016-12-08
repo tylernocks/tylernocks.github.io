@@ -64,13 +64,20 @@
 							<article id="about">
 								<h2 class="major">About</h2>
 								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+								<ul>
+										<li>Teacher at High School Programming Enrichment</li>
+										<li>Over 70 hours of Community Service</li>
+										<li>Leader (Parlimentarian) in High School National Honors Society with over 50 students</li>
+										<li>High Honor Roll Student</li>
+										<li>Ranked 9th in class of 192</li>
+										<li>4.16 Cumulative GPA</li>
+								</ul>
 							</article>
 
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
+								<form method="GET" action="mailto:test@example.com" enctype="text/plain">
 									<div class="field half first">
 										<label for="name">Name</label>
 										<input type="text" name="name" id="name" />
@@ -89,12 +96,40 @@
 									</ul>
 								</form>
 								<ul class="icons">
-									<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="http://www.github.com/jetdegree" class="icon fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
 							</article>
+
+						<!-- Email Submittion -->
+							<script>
+								var form = document.getElementsByTagName('form')[0];
+								form.addEventListener('submit',contact,false);
+								function contact(e) {
+									// Prevent Default Form Submission
+									e.preventDefault();
+
+									var target = e.target || e.srcElement;
+									var i = 0;
+									var message = '';
+
+									// Loop Through All Input Fields
+									for(i = 0; i < target.length; ++i) {
+										// Check to make sure it's a value. Don't need to include Buttons
+										if(target[i].type != 'text' && target[i].type != 'textarea') {
+												// Skip to next input since this one doesn't match our rules
+											continue;
+										}
+
+										// Add Input Name and value followed by a line break
+										message += target[i].name + ': ' + target[i].value + "\r\n";
+									}
+									// Modify the hidden body input field that is required for the mailto: scheme
+									target.elements["body"].value = message;
+
+									// Submit the form since we previously stopped it. May cause recursive loop in some browsers? Should research this.
+									this.submit();
+								}
+							</script>
 
 						<!-- Elements -->
 							<article id="elements">
@@ -297,18 +332,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 											<label for="demo-email">Email</label>
 											<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
 										</div>
-										<div class="field">
-											<label for="demo-category">Category</label>
-											<div class="select-wrapper">
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-										</div>
 										<div class="field half first">
 											<input type="radio" id="demo-priority-low" name="demo-priority" checked>
 											<label for="demo-priority-low">Low</label>
@@ -342,7 +365,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p class="copyright">Design: HTML5 UP</a>.</p>
 					</footer>
 
 			</div>
